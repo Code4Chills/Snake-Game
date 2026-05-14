@@ -1,0 +1,218 @@
+:root {
+  color-scheme: dark;
+  --background: #11180d;
+  --panel: rgba(26, 38, 17, 0.86);
+  --panel-strong: #1e2d13;
+  --green: #adcc60;
+  --dark-green: #2b3318;
+  --neon: #d8ff80;
+  --danger: #ff6b6b;
+  --text: #f4ffe1;
+  --muted: #bfd19a;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(216, 255, 128, 0.22), transparent 32rem),
+    linear-gradient(135deg, #10170d, #1d2d12 52%, #0c1309);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.game-shell {
+  width: min(1040px, 100%);
+  display: grid;
+  gap: 20px;
+}
+
+.hero-card,
+.controls-card,
+.board-card {
+  border: 1px solid rgba(216, 255, 128, 0.24);
+  background: var(--panel);
+  box-shadow: 0 24px 70px var(--shadow);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+}
+
+.hero-card,
+.controls-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--neon);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  margin-bottom: 8px;
+}
+
+.subtitle,
+.controls-card p {
+  max-width: 620px;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.score-panel {
+  display: flex;
+  gap: 12px;
+}
+
+.score-panel div {
+  min-width: 108px;
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--panel-strong);
+  text-align: center;
+}
+
+.score-panel span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.score-panel strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--neon);
+  font-size: 2rem;
+}
+
+.board-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 24px);
+}
+
+canvas {
+  width: min(600px, 100%);
+  aspect-ratio: 1;
+  height: auto;
+  border-radius: 22px;
+  background: var(--green);
+  box-shadow: inset 0 0 0 8px var(--dark-green);
+}
+
+.overlay {
+  position: absolute;
+  inset: clamp(12px, 3vw, 24px);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 14px;
+  text-align: center;
+  border-radius: 22px;
+  background: rgba(17, 24, 13, 0.72);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay h2 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 4.8rem);
+  letter-spacing: -0.06em;
+}
+
+.overlay p {
+  margin: 0;
+  color: var(--muted);
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  color: #17200e;
+  background: var(--neon);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(216, 255, 128, 0.24);
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+#start-button {
+  padding: 14px 24px;
+}
+
+.mobile-controls {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.mobile-controls div {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-controls button {
+  width: 52px;
+  height: 52px;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 14px;
+  }
+
+  .hero-card,
+  .controls-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .score-panel {
+    width: 100%;
+  }
+
+  .score-panel div {
+    flex: 1;
+  }
+}

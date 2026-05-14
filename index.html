@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retro Snake</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section class="hero-card">
+      <div class="title-group">
+        <p class="eyebrow">Classic Arcade</p>
+        <h1>Retro Snake</h1>
+        <p class="subtitle">Guide the snake, eat the apples, and avoid crashing into the walls or yourself.</p>
+      </div>
+
+      <div class="score-panel" aria-label="Game scores">
+        <div>
+          <span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span>Best</span>
+          <strong id="best-score">0</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-card">
+      <canvas id="game-board" width="600" height="600" aria-label="Snake game board"></canvas>
+      <div id="overlay" class="overlay">
+        <h2>Retro Snake</h2>
+        <p>Press Start or use an arrow key to play.</p>
+        <button id="start-button" type="button">Start Game</button>
+      </div>
+    </section>
+
+    <section class="controls-card">
+      <div>
+        <h2>Controls</h2>
+        <p>Use the arrow keys or WASD to move. Press Space to pause or resume.</p>
+      </div>
+      <div class="mobile-controls" aria-label="Touch controls">
+        <button data-direction="up" type="button">↑</button>
+        <div>
+          <button data-direction="left" type="button">←</button>
+          <button data-direction="down" type="button">↓</button>
+          <button data-direction="right" type="button">→</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
